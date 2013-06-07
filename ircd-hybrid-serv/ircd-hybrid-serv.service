@@ -1,0 +1,11 @@
+[Unit]
+Description=IRC daemon services
+After=network.target remote-fs.target nss-lookup.target
+
+[Service]
+Type=forking
+User=ircd
+ExecStart=/usr/sbin/hybserv
+
+[Install]
+WantedBy=multi-user.target
