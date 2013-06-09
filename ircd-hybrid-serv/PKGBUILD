@@ -5,7 +5,7 @@
 pkgname=ircd-hybrid-serv
 _shortname=hybserv
 pkgver=1.9.4
-pkgrel=4
+pkgrel=5
 arch=("i686" "x86_64")
 pkgdesc="Hybserv2 IRC services for ircd-hybrid server"
 url="http://sourceforge.net/projects/hybserv2"
@@ -24,6 +24,7 @@ source=("http://prdownloads.sourceforge.net/${_shortname}2/${_shortname}-${pkgve
         "makefile-fixes.patch"
         "settings-defaults.patch"
         "settings-setpath.patch"
+        "fix-too-many-wakeup-networkstack.patch"
         "${pkgname}.conf"
         "${pkgname}.rc"
         "${pkgname}.service")
@@ -32,6 +33,7 @@ md5sums=("2163ca0c5d5d60ae39f3164e642fc4d4"
          "059afe5e32c59b3ccc2fadedbe5f7ee0"
          "742a7beae58a3a6e5918d7c7235d6159"
          "25b1c8dd9700d79ba28282d154c65f32"
+         "2d35c8e5d6c72feddcfae2ed41dff7ff"
          "95787fbf5edd46bfeb48c893d44a32e1"
          "61a6a1b67c432a1382429b9701ddd984"
          "bfdb1e692f1b6bc6cf34f709e15b4f27")
@@ -44,6 +46,7 @@ build() {
   patch -Np1 -i ${srcdir}/makefile-fixes.patch
   patch -Np1 -i ${srcdir}/settings-defaults.patch
   patch -Np1 -i ${srcdir}/settings-setpath.patch
+  patch -Np1 -i ${srcdir}/fix-too-many-wakeup-networkstack.patch
 
 # User compile time options
   _nicklen=16

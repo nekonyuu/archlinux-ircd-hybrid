@@ -1,0 +1,13 @@
+--- hybserv.orig/src/sock.c	2013-06-09 18:26:33.830019486 +0200
++++ hybserv/src/sock.c	2013-06-09 18:27:16.520021965 +0200
+@@ -602,8 +602,8 @@
+ 		FD_ZERO(&readfds);
+ 		FD_ZERO(&writefds);
+ 
+-		TimeOut.tv_sec = 0L;
+-		TimeOut.tv_usec = 200L;
++		TimeOut.tv_sec = 1L;
++		TimeOut.tv_usec = 0L;
+ 
+ 		if (currenthub && (HubSock != NOSOCKET))
+ 		{
